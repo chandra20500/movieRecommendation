@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Quicksand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Padauk&display=swap");
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: #ffffff;
+}
+.mainHeading {
+  font-family: "Open Sans", sans-serif;
+}
+.subHeading {
+  font-family: "Padauk", sans-serif;
+}
