@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -38,8 +38,9 @@ export default function RecipeReviewCard(props) {
     setExpanded(!expanded);
   };
   const [selected, SetSelected] = useState(false);
+
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} onClick={() => SetSelected(!selected)}>
       <CardHeader title={props.title} />
       <CardMedia
         className={classes.media}
@@ -49,7 +50,6 @@ export default function RecipeReviewCard(props) {
       <IconButton aria-label="add to favorites">
         <FavoriteIcon className={selected ? "selected" : "unselected"} />
       </IconButton>
-      {props.selected ? "selected" : "unselected"}
     </Card>
   );
 }

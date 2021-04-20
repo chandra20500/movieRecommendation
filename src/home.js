@@ -54,13 +54,10 @@ const HomePage = () => {
   );
 };
 
-const selectedMovies = [];
-
 const addmovie = (props) => {
   //console.log(props);
-  selectedMovies.push(props.genres);
   props.selected = props.selected ? false : true;
-  console.log(props.selected);
+  console.log(movieList);
 };
 
 const CardCollection = () => {
@@ -75,7 +72,6 @@ const CardCollection = () => {
               title={movie.title}
               selected={movie.selected}
             ></Card>
-            {movie.selected ? "yayiii" : "nahh"}
           </Grid>
         ))}
       </Grid>
