@@ -37,7 +37,7 @@ export default function RecipeReviewCard(props) {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
+  const [selected, SetSelected] = useState(false);
   return (
     <Card className={classes.root}>
       <CardHeader title={props.title} />
@@ -47,8 +47,9 @@ export default function RecipeReviewCard(props) {
         title="Paella dish"
       />
       <IconButton aria-label="add to favorites">
-        <FavoriteIcon className={props.selected ? "selected" : "unselected"} />
+        <FavoriteIcon className={selected ? "selected" : "unselected"} />
       </IconButton>
+      {props.selected ? "selected" : "unselected"}
     </Card>
   );
 }

@@ -1,4 +1,4 @@
-import react from "react";
+import react, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "./HomepageComponent/card.js";
 import Paper from "@material-ui/core/Paper";
@@ -25,15 +25,18 @@ const useStyles = makeStyles((theme) => ({
 const movieList = [
   {
     title: "king kong vs godzilla",
-    genres: [0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0]
+    genres: [0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0],
+    selected: false
   },
   {
     title: "justice league",
-    genres: [0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1]
+    genres: [0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1],
+    selected: false
   },
   {
     title: "Dont Brethe",
-    genres: [0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0]
+    genres: [0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0],
+    selected: false
   }
 ];
 
@@ -54,30 +57,25 @@ const HomePage = () => {
 const selectedMovies = [];
 
 const addmovie = (props) => {
-  console.log(props);
-  selectedMovies.push(props);
-  console.log(selectedMovies);
+  //console.log(props);
+  selectedMovies.push(props.genres);
+  props.selected = props.selected ? false : true;
+  console.log(props.selected);
 };
 
 const CardCollection = () => {
   const classes = useStyles();
-
   return (
     <>
       <Grid container spacing={3}>
         {movieList.map((movie, index) => (
-          <Grid
-            item
-            lg={3}
-            xs={12}
-            key={index}
-            onClick={() => addmovie(movie.genres)}
-          >
+          <Grid item lg={3} xs={12} key={index} onClick={() => addmovie(movie)}>
             <Card
               className={classes.paper}
               title={movie.title}
-              selected={false}
+              selected={movie.selected}
             ></Card>
+            {movie.selected ? "yayiii" : "nahh"}
           </Grid>
         ))}
       </Grid>
