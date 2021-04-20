@@ -13,3 +13,6 @@
 .subHeading {
   font-family: "Padauk", sans-serif;
 }
+.selected {
+  color: #dc004e;
+}

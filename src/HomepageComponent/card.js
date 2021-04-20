@@ -47,7 +47,7 @@ export default function RecipeReviewCard(props) {
         title="Paella dish"
       />
       <IconButton aria-label="add to favorites">
-        <FavoriteIcon />
+        <FavoriteIcon className={props.selected ? "selected" : "unselected"} />
       </IconButton>
     </Card>
   );
