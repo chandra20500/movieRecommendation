@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function RecipeReviewCard() {
+export default function RecipeReviewCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -40,7 +40,7 @@ export default function RecipeReviewCard() {
 
   return (
     <Card className={classes.root}>
-      <CardHeader title="King Kong Vs Godzilla" />
+      <CardHeader title={props.title} />
       <CardMedia
         className={classes.media}
         image="https://cdn.onebauer.media/one/media/605b/69a9/dbf2/7f24/48f5/9560/godzilla-vs-kong.jpg?format=jpg&quality=80&width=440&ratio=16-9&resize=aspectfill"
