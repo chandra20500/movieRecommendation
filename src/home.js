@@ -62,11 +62,36 @@ const addmovie = (props) => {
 
 const CardCollection = () => {
   const classes = useStyles();
+  const [selected, setselected] = useState([]);
+
+  const changelist = (props) => {
+    //console.log(props);
+    const arr = selected;
+    for (var i = 0; i < selected.length; i++) {
+      if (selected[i] === props) {
+        arr.splice(i, 1);
+        // console.log(arr);
+        setselected(arr);
+        return;
+      }
+    }
+    if (arr.length === 1) {
+      console.log("OOPS only 5 selections allowed");
+    }
+    setselected([...selected, props]);
+  };
+
   return (
     <>
       <Grid container spacing={3}>
         {movieList.map((movie, index) => (
-          <Grid item lg={3} xs={12} key={index} onClick={() => addmovie(movie)}>
+          <Grid
+            item
+            lg={3}
+            xs={12}
+            key={index}
+            onClick={() => changelist(movie.title)}
+          >
             <Card
               className={classes.paper}
               title={movie.title}
